@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import update from 'react-addons-update';
 import {connect} from 'react-redux';
 import * as userActions from './../../redux/actions/userActions';
@@ -44,13 +44,15 @@ class UserDetails extends Component {
   }
   getUser() {
     let id = this.props.id;
+    let isFound = false;
+    let returnValue = "";
     let data = this.props.users.reduce(function(initialValue, value) {
-      if (value.id == id) {
-        return value;
+      if (value.id == id && !isFound) {
+        returnValue = value;
+        isFound = true;
       }
-      return 0;
     }, 0);
-    return data;
+    return returnValue;
   }
   componentDidMount() {
     
@@ -97,9 +99,21 @@ class UserDetails extends Component {
     }
     return (
       <div>
-        <h2 id="heading">User Details</h2>
-        <input type="text" name="username" value={this.state.selectedUser.name} onChange={this.updateInputValue} />
-        <input type="button" value="Update User" onClick={this.updateUser} />
+        <div className="pure-g">
+          <div className="pure-u-1-3 txtAlignL"><Link to="/">Back</Link></div>
+          <div className="pure-u-2-3"><h2 id="heading">User Details Component</h2></div>
+        </div>
+        <div className="pure-g mTop50">
+          <div className="pure-u-1-3">
+            Name
+          </div>
+          <div className="pure-u-1-3">
+            <input type="text" name="username" value={this.state.selectedUser.name} onChange={this.updateInputValue} />
+          </div>
+          <div className="pure-u-1-3">
+            <input type="button" value="Update User" className="btn" onClick={this.updateUser} />
+            </div>
+      </div>
       </div>
     );
   }

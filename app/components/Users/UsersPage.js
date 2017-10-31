@@ -11,8 +11,8 @@ export default class UsersPage extends Component {
   }
   render() {
     return (
-      <div className="main-content">
-        <h1>Users page</h1>
+      <div className="main-content leftBorderNone">
+        <h1 className="innerHeader">Users Page</h1>
         <UserDetails id={this.props.id} callbackParent={this.onChildChanged} />
       </div>
     );

@@ -20,8 +20,12 @@ export default class Users extends Component {
     return (
       <div>
           <Header />
-          <SideBar />
-          <UsersPage id={this.props.match.params.id} />
+          <div className="contentBody">
+            <div className="innerBody">
+              <SideBar />
+              <UsersPage id={this.props.match.params.id} />
+            </div>
+          </div>
           <Footer />
         </div>
     );

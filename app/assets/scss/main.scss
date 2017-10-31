@@ -53,6 +53,11 @@ body {
     margin-top: 12px;
   }
 }
+.innerHeader {
+  background-color: #003057;
+  padding: 6px;
+  color: #FFF;
+}
 .footer {
   background: #000;
   color: #fff;
@@ -137,7 +142,7 @@ body {
   width: 100%;
   border: 1px solid #666;
   margin-top: 18px;
-  tr td {
+  tr td, tr th  {
     padding: 10px;
     border: 1px solid #D2D2D2;
   }
@@ -154,7 +159,7 @@ html {
 h1 {
     letter-spacing: .05em;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 16px!important;
     margin: 0;
 }
 
@@ -231,6 +236,12 @@ h3 {
 }
 .floatR {
   float: right;
+}
+.mTop50 {
+  margin-top: 50px;
+}
+.txtAlignL {
+  text-align: left;
 }
 .btn {
   display: inline-block;

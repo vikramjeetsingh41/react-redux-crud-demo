@@ -6,11 +6,7 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className="subHeader">
-        <h2>ReactJS Redux CRUD Demo</h2>
-        {/* <ul>
-          <li><Link to={`/`}>Home</Link></li>
-          <li><Link to={`/users/`}>Users</Link></li>
-        </ul> */}
+        <h2>ReactJS Redux CRUD Demo (Header Component)</h2>
       </div>
       </div>
     );

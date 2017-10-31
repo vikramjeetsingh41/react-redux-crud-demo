@@ -19,7 +19,7 @@ const UsersList = ({users, edit, deleteUser}) => {
   if (userList == "") {
     userList = <tr><td colSpan="4" className="noRecordsFound">No records found</td></tr>;
   }
-  return (<table className="table"><tbody><tr><th>S.No.</th><th>Name</th><th>Actions</th></tr>{userList}</tbody></table>);
+  return (<table className="table"><tbody><tr><th>S.No.</th><th>Name</th><th colSpan="2">Actions</th></tr>{userList}</tbody></table>);
 }
 
 export default class HomePage extends Component {

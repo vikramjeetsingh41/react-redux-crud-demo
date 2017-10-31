@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 var ReactDOM = require('react-dom');
-import { Route, HashRouter } from "react-router-dom";
+import { Route, HashRouter, BrowserRouter } from "react-router-dom";
 
 import configureStore from './redux/store/configureStore';
 import { Provider } from 'react-redux';
@@ -18,14 +18,14 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-  <HashRouter>
+  <BrowserRouter>
     <div>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/users" component={Users} />
-      <Route path="/users/:id" component={Users} />
-      <Route path="/user" component={Users} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/users" component={Users} />
+        <Route path="/users/:id" component={Users} />
+        <Route path="/user" component={Users} />
     </div>
-  </HashRouter>
+  </BrowserRouter>
   </Provider>,
   document.getElementById("root"));
 
