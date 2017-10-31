@@ -1,0 +1,172 @@
+/* LOGIN STYLES
+=========================================================*/
+
+.login-base {
+    @include flexbox;
+    @include flex-flow(column nowrap);
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    background-color: #00678f;
+    .login-content-base {
+        @include flex(1, 1, auto);
+        .cross-gradient {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: rgba(0, 47, 88, 1);
+            background: -moz-linear-gradient(45deg, rgba(0, 47, 88, 1) 0%, rgba(0, 47, 88, 0) 80%, rgba(0, 47, 88, 0) 100%);
+            background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0, 47, 88, 1)), color-stop(80%, rgba(0, 47, 88, 0)), color-stop(100%, rgba(0, 47, 88, 0)));
+            background: -webkit-linear-gradient(45deg, rgba(0, 47, 88, 1) 0%, rgba(0, 47, 88, 0) 80%, rgba(0, 47, 88, 0) 100%);
+            background: -o-linear-gradient(45deg, rgba(0, 47, 88, 1) 0%, rgba(0, 47, 88, 0) 80%, rgba(0, 47, 88, 0) 100%);
+            background: -ms-linear-gradient(45deg, rgba(0, 47, 88, 1) 0%, rgba(0, 47, 88, 0) 80%, rgba(0, 47, 88, 0) 100%);
+            background: linear-gradient(45deg, rgba(0, 47, 88, 1) 0%, rgba(0, 47, 88, 0) 80%, rgba(0, 47, 88, 0) 100%);
+            // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f58', endColorstr='#002f58', GradientType=1 );
+        }
+        .waves {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            background-image: url('../img/big-wave-01.png');
+            background-position: -200px 50px;
+            background-size: auto 600px;
+            background-repeat: repeat-x;
+            z-index: 0;
+        }
+        .login-content {
+            @include flexbox;
+            @include align-items(center);
+            @include justify-content(center);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            .login-panel {
+                /* flex: 0 0 85%; */
+                @include flex(0, 0, 85%);
+                width: 85%;
+                max-width: 400px;
+                background-color: white;
+                border-radius: 5px;
+                @include flexbox;
+                @include flex-flow(column nowrap);
+                padding: 35px 30px 0 30px;
+                .login-panel-header {
+                    margin-bottom: 15px;
+                    .sub-title {
+                        font-size: 0.9rem;
+                        line-height: 0.9rem;
+                        font-weight: 300;
+                        margin: 0;
+                        padding: 0;
+                        margin-bottom: 10px;
+                    }
+                    .logo-holder {
+                        @include flexbox;
+                        @include flex-flow(row nowrap);
+                        @include align-items(flex-start);
+                        @include justify-content(flex-start);
+                        img {
+                            width: 100px;
+                        }
+                        .title {
+                            font-size: 1.8em;
+                            line-height: 25px;
+                            font-weight: 300;
+                            margin: 3px 0 0 5px;
+                            padding: 0 0 0 8px;
+                            border-left: 1px solid $layout_seperator;
+                        }
+                    }
+                }
+                .login-panel-content {
+                    padding: 0 0 0 0;
+                    .login-btn-holder {
+                        margin-bottom: 20px;
+                        position: relative;
+                        @include flexbox;
+                        padding: 10px 0 0 0;
+                        border-bottom: solid 1px #dcdcdc;
+                        button {
+                            @include flex(1);
+                            &.disabled {
+                                opacity: 1 !important;
+                                filter: alpha(opacity=100);
+                                pointer-events: none;
+                            }
+                        }
+                        .login-loader {
+                            position: absolute;
+                            top: 26px;
+                        }
+                    }
+                    .error-holder {
+                        @include flexbox;
+                        @include justify-content(center);
+                        @include align-items(center);
+                        min-height: 40px;
+                        label {
+                            font-size: 12px;
+                            color: $error-color;
+                            text-align: center;
+                            line-height: 16px;
+                            padding: 15px 0;
+                            @include flexbox;
+                            @include justify-content(center);
+                        }
+                    }
+                }
+                .login-panel-footer {
+                    @include flexbox;
+                    @include flex-flow(column nowrap);
+                    .gs-button-primary {
+                        margin: 20px 0 15px 0
+                    }
+                    .gs-button-link-primary {
+                        margin: 10px 0 10px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.login-loader {
+    position: relative;
+    right: 10px;
+    @include align-self(center);
+    @include inline-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    pointer-events: none;
+    span {
+        border-radius: 50%;
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: white;
+        animation: bounceDelay 1s infinite ease-in-out;
+        margin-right: 2px;
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        &:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+@keyframes bounceDelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    40% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
