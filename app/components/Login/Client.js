@@ -16,7 +16,7 @@ function parseJSON(response) {
 
 /* eslint-disable no-undef */
 function login() {
-  const loginUrl = "http://axon-partner.greenwavesystems.com:80/api/accounts/login";
+  const loginUrl = "abc.com";
   return fetch(loginUrl, {
     method: "POST",
     headers: {
@@ -24,7 +24,7 @@ function login() {
     },
     body: JSON.stringify({
       email: "vikramjeetsingh41@gmail.com",
-      password: "Test!234",
+      password: "1111",
       ui: {
         "applicationId": "react"
       }

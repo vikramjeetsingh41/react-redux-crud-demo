@@ -83,7 +83,7 @@ class Login extends Component {
           </div>
         </div>
         <footer className="mdl-mini-footer ">
-          <a href="https://greenwavesystems.com/">© 2017 Greenwave Systems. All Rights Reserved. | v2.1</a>
+          <a href="https://abc.com/">© 2017 Greenwave Systems. All Rights Reserved. | v2.1</a>
         </footer>
       </div>
     );
