@@ -12,10 +12,7 @@ export default class UserDetails extends Component {
       "selectedUser": data,
       "redirectToReferrer": false
     };
-    this.addList = this.addList.bind(this);
     this.updateUser = this.updateUser.bind(this);
-    //this.handleRemove = this.handleRemove.bind(this);
-    //this.handleEdit = this.handleEdit.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
   }
   getUser() {
@@ -32,23 +29,6 @@ export default class UserDetails extends Component {
   }
   componentDidMount() {
     
-  }
-  handleRemove(index) {
-    this.setState({
-      data: update(this.state.data, {$splice: [[index, 1]]})
-    });
-  }
-  handleEdit(index) {
-    let data = this.state.data[index];
-    this.props.callbackParent(data.name);
-  }
-  addList(e) {
-    e.preventDefault();
-    let count = this.state.data.length;
-    let newId = count + 1;
-    let newElem = { "id": newId, "name": newId + " roni"};
-    let updatedList = this.state.data.concat(newElem);
-    this.setState({ data: updatedList });
   }
   updateInputValue(evt) {
     console.log(evt.target.value);
