@@ -3,8 +3,10 @@ import Header from "./../../components/Common/Header";
 import Footer from "./../../components/Common/Footer";
 import SideBar from "./../../components/Common/SideBar";
 import UsersPage from "./../../components/Users/UsersPage";
+import {connect} from 'react-redux';
+import * as userActions from './../../redux/actions/userActions';
 
-export default class Users extends Component {
+class Users extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,13 +19,14 @@ export default class Users extends Component {
     this.setState({"selectedUser": newName});
   }
   render() {
+    const { users, updateUser } = this.props;
     return (
       <div>
           <Header />
           <div className="contentBody">
             <div className="innerBody">
               <SideBar />
-              <UsersPage id={this.props.match.params.id} />
+              <UsersPage id={this.props.match.params.id} users={users} updateUser={updateUser} />
             </div>
           </div>
           <Footer />
@@ -31,3 +34,15 @@ export default class Users extends Component {
     );
   }
 }
+
+function mapStateToProps(state, ownProps) {
+  return {
+    users: state.users
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    updateUser: user => dispatch(userActions.updateUser(user))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

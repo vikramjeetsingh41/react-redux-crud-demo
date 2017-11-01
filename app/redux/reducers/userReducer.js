@@ -18,11 +18,15 @@ export default function users(state = [], action) {
       ];
 
     case "UPDATE_USER":
-      return [
-        ...state.filter(user => user.id != action.user.id),
-        Object.assign({}, action.user)
-      ];
-    
+      if (typeof action.user.id !== "undefined") {
+        return [
+          ...state.filter(user => user.id != action.user.id),
+          Object.assign({}, action.user)
+        ];
+      } else {
+        return [...state];
+      }
+
     case "DELETE_USER":
       return [
         ...state.filter(user => user.id != action.userId)

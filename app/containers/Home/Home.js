@@ -13,20 +13,11 @@ class Home extends Component {
     this.state = {
       "isRedirect": false
     };
-    this.redirectToLogin = this.redirectToLogin.bind(this);
-  }
-  redirectToLogin() {
-    this.setState({ isRedirect: true });
   }
   
   render() {
-    const { isRedirect, isEditRedirect } = this.state;
+    const { isEditRedirect } = this.state;
     const { usersState, createUser, deleteUser } = this.props;
-    if (isRedirect) {
-      return (
-        <Redirect to={"/login"} />
-      );
-    }
     return (
         <div>
           <Header />

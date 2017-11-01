@@ -13,9 +13,6 @@ import Users from "./containers/Users/Users";
 
 const store = configureStore();
 
-// Dispatch actions to load initial state.
-//store.dispatch(loadCourses());
-
 ReactDOM.render(
   <Provider store={store}>
   <BrowserRouter>

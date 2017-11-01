@@ -4,31 +4,7 @@ import update from 'react-addons-update';
 import {connect} from 'react-redux';
 import * as userActions from './../../redux/actions/userActions';
 
-const Button = ({title, method, index}) => {
-  return (
-    <input type="button" value={title} onClick={() => {method(index)}} />
-  );
-}
-
-const Todo = ({todo, index, remove, edit}) => {
-  // Each Todo
-  return (
-    <li>{todo.name} 
-      <Button title="Remove" method={remove} index={index} />
-      <Button title="Edit" method={edit} index={index} />
-    </li>
-  );
-}
-
-const TodoList = ({todos, remove, edit}) => {
-  // Map through the todos
-  const todoNode = todos.map((todo, index) => {
-    return (<Todo todo={todo} key={todo.id} index={index} remove={remove} edit={edit} />)
-  });
-  return (<ul>{todoNode}</ul>);
-}
-
-class UserDetails extends Component {
+export default class UserDetails extends Component {
   constructor(props) {
     super(props);
     let data = this.getUser();
@@ -38,8 +14,8 @@ class UserDetails extends Component {
     };
     this.addList = this.addList.bind(this);
     this.updateUser = this.updateUser.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    //this.handleRemove = this.handleRemove.bind(this);
+    //this.handleEdit = this.handleEdit.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
   }
   getUser() {
@@ -118,15 +94,3 @@ class UserDetails extends Component {
     );
   }
 }
-
-function mapStateToProps(state, ownProps) {
-  return {
-    users: state.users
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return {
-    updateUser: user => dispatch(userActions.updateUser(user))
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(UserDetails);
