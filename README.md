@@ -1,11 +1,18 @@
 # react-redux-crud-demo
+Sample React Redux CRUD app using Redux ES6
 
-## Requirements
+### Requirements
+```sh
+NodeJS
+```
 
-### NodeJS
+### Install Dependencies
+```sh
+npm install
+```
+### Development
+```sh
+npm start
+```
 
-## Getting Started
-
-### npm install
-### npm start
-### Open: http://localhost:8080/#/
+Open: http://localhost:8080/#/
